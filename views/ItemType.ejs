@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title><%= title %>
+	</title>
+</head>
+<body>
+<div class="div-left">
+<% include header %>
+</div>
+
+<div class="div-left">
+<br>
+<%= title %>
+<br>
+<br>
+
+<table border="1">
+	<tr>
+		<td>名稱</td>
+		<td>動作</td>
+	</tr>
+	<tr>
+		<td><input type='text' size =10></td>
+		<td><button type="button">增</button></td>
+	</tr>
+<% Detail.forEach(function(detail){ %>
+	<tr>
+		<td><%= detail.name%>
+		</td>
+<%})%>
+</table>
+</div>
+
+
+
+
+</body>
+
+</html>
+
+
