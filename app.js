@@ -14,7 +14,7 @@ var MonsterType = require('./routes/MonsterType');
 var AttriType = require('./routes/AttriType');
 var TrapType = require('./routes/TrapType');
 var StrippedType = require('./routes/StrippedType');
-var Position = require('./routes/Position');
+var Site = require('./routes/Site');
 var ItemType = require('./routes/ItemType');
 
 var app = express();
@@ -41,7 +41,7 @@ app.use('/MonsterType', MonsterType);
 app.use('/AttriType', AttriType);
 app.use('/TrapType', TrapType);
 app.use('/StrippedType', StrippedType);
-app.use('/Position', Position);
+app.use('/Site', Site);
 app.use('/ItemType', ItemType);
 
 

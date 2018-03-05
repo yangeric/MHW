@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %>
+	</title>
+</head>
+<body>
+<div class="div-left">
+<% include header %>
+</div>
+<div class="div-left">
+	<br>
+<%= title %>
+	<br>
+	<br>
+	<form id="form1" method="POST">
+		<table border="1">
+			<tr>
+				<td>ID</td>
+				<td>名稱</td>
+				<td>動作</td>
+			</tr>
+			<tr>
+				<td>
+				<label size="10" id ='id'>
+				</td>
+				<td>
+				<input type="text" size="10" name ='Site_Name' id="Site_Name">
+				</td>
+				<td><button type="button" id="add">增</button><button type="button" id="update">修</button><button type="button" id="delete">刪</button></td>
+			</tr>
+<% Detail.forEach(function(detail){ %>
+			<tr>
+				<td><%= detail.id%>
+				<td><%= detail.Site_Name%>
+				</td>
+				<td>
+				<input type="radio" name="sel" value="&#36984;&#21462;">
+				</td>
+<%})%>
+		</table>
+	</form>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("button#add").click(function(){
+			if($("#Site_Name").val()==''){
+				alert("部位不得為空");
+				return;
+			}
+			$('#form1').attr('action', '/Site/ADD');
+			$("#form1").submit()
+	  	});
+	});
+</script>

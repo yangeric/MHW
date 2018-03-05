@@ -7,7 +7,8 @@ var connection = mysql.createConnection({
     user     : db_config.user,
     password : db_config.password,
     database : db_config.database,
-    port     : db_config.port
+    port     : db_config.port,
+    multipleStatements: true
 });
 
     connection.connect();

@@ -3,16 +3,54 @@ var myDB = require('./DB_Class');
 
 
 
-//刪除
-exports.Sel_Position = function Sel_Position(In_Data,callback){
-    var sql = "select * from Position where Position_Name like '%"+In_Data.Positon_Name+"%';";
+//查詢
+exports.SELECT = function SELECT(Table_Name,callback){
+	if(Table_Name == undefined){
+		return ;
+	}
+    var sql = "select * from "+Table_Name;
     console.log(sql);
     myDB.connection.query(sql
     ,function(err, rows, fields) {
     		console.log(rows);
             callback(err,rows,fields);
     });
+    myDB.end;
 }
+
+
+//新增
+exports.ADD = function Sel(Table_Name,In_Data,callback){
+	if(Table_Name == undefined){
+		return ;
+	}
+    //var sql = "INSERT INTO Site (Site_Name) VALUES ('"+In_Data.Site_Name+"')";
+    var sql = "INSERT INTO "+Table_Name+" SET ? ";
+    console.log(sql);
+    var str = myDB.connection.query(sql,In_Data
+    ,function(err, rows, fields) {
+    console.log(str.sql);
+    		if (err) throw err;
+            callback(err,rows,fields);
+    });
+    //console.log(str);
+}
+//刪除
+exports.DELETE = function DELETE(Table_Name,In_Data,callback){
+	if(Table_Name == undefined){
+		return ;
+	}
+    var sql = "DELETE "+Table_Name+" SET ?)";
+    console.log(sql);
+    var str = myDB.connection.query(sql,In_Data
+    ,function(err, rows, fields) {
+    console.log(str.sql);
+    		if (err) throw err;
+            callback(err,rows,fields);
+    });
+    //console.log(str);
+}
+
 
 
 
